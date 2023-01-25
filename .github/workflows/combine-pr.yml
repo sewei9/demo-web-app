@@ -67,15 +67,16 @@ jobs:
                       }
                     }
                   }`
-                  const vars = {
-                    owner: context.repo.owner,
-                    repo: context.repo.repo,
-                    pull_number: pull['number']
-                  };
-                  const result = await github.graphql(stateQuery, vars);
-                  const [{ commit }] = result.repository.pullRequest.commits.nodes;
+                const vars = {
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  pull_number: pull['number']
+                };
             
-                  if(commit.statusCheckRollup != null){
+                const result = await github.graphql(stateQuery, vars);
+                const [{ commit }] = result.repository.pullRequest.commits.nodes;
+            
+                if(commit.statusCheckRollup != null){
                   const state = commit.statusCheckRollup.state
                   console.log('Validating status: ' + state);
                   if(state != 'SUCCESS') {
@@ -90,7 +91,7 @@ jobs:
                   statusOK = false;
                   }
                 }
-                  console.log('Checking labels: ' + branch);
+                console.log('Checking labels: ' + branch);
                 const labels = pull['labels'];
                 for(const label of labels) {
                   const labelName = label['name'];
