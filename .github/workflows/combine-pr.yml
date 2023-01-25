@@ -54,12 +54,12 @@ jobs:
                   const stateQuery = `query($owner: String!, $repo: String!, $pull_number: Int!) {
                     repository(owner: $owner, name: $repo) {
                       pullRequest(number:$pull_number) {
-                        mergeable(
+                        mergeable
                         commits(last: 1) {
                           nodes {
                             commit {
                               statusCheckRollup {
-                                state)
+                                state
                               }
                             }
                           }
@@ -77,18 +77,19 @@ jobs:
                 const [{ commit }] = result.repository.pullRequest.commits.nodes;
             
                 if(commit.statusCheckRollup != null){
-                  const state = commit.statusCheckRollup.state
-                  console.log('Validating status: ' + state);
-                  if(state != 'SUCCESS') {
-                  console.log('Discarding ' + branch + ' with status ' + state);
-                  statusOK = false;
-                  }
-                } else {
-                  const mergeable = result.repository.pullRequest.mergeable
-                  console.log('PR does not have statusCheckRollup, but mergeability is: ' + mergeable);
-                  if(mergeable !== 'MERGEABLE'){
-                  console.log('Discarding ' + branch + ' with mergeability: ' + mergeable);
-                  statusOK = false;
+                    const state = commit.statusCheckRollup.state
+                    console.log('Validating status: ' + state);
+                    if(state != 'SUCCESS') {
+                      console.log('Discarding ' + branch + ' with status ' + state);
+                      statusOK = false;
+                    }
+                  } else {
+                    const mergeable = result.repository.pullRequest.mergeable
+                    console.log('PR does not have statusCheckRollup, but mergeability is: ' + mergeable);
+                    if(mergeable !== 'MERGEABLE'){
+                      console.log('Discarding ' + branch + ' with mergeability: ' + mergeable);
+                      statusOK = false;
+                    }
                   }
                 }
                 console.log('Checking labels: ' + branch);
