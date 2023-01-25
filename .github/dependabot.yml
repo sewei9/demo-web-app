@@ -1,0 +1,48 @@
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+
+  # ===================================================== #
+  # - - - - - - - - - -  Node Modules - - - - - - - - - - #
+  # ===================================================== #
+
+  # Maintain dependencies for npm
+  - package-ecosystem: "npm"
+    directory: "/src"
+    ignore:
+      - dependency-name: "express"
+      # For Express, ignore all updates for version 4 and 5
+        versions: [ "4.x", "5.x" ]
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+    # target-branch: "develop"
+    # Allow up to 5 open pull requests for npm dependencies
+    open-pull-requests-limit: 5
+    # Specify reviewers for pull requests
+    reviewers:
+      - "ingka-group-digital/ilo-aol/bajay4"
+      - "ingka-group-digital/ilo-aol/brianweet"
+      - "ingka-group-digital/ilo-aol/manupat"
+
+  # ===================================================== #
+  # - - - - - - - - - -  Terraform  - - - - - - - - - - - #
+  # ===================================================== #
+
+  - package-ecosystem: "terraform"
+    directory: "/terraform"
+    schedule:
+      interval: "daily"
+
+  # ===================================================== #
+  # - - - - - - - - -  Github Actions - - - - - - - - - - #
+  # ===================================================== #
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
