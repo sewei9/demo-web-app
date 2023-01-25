@@ -1,0 +1,15 @@
+{
+  "data": {
+    "attributes": {
+      "X-Cloud-Trace-Context": "jwjwjwjqii",
+      "wmsIdentifier": "TEST-WMS-1",
+      "automationSystemIdentifier": "SYNQ-TEST",
+      "operation": "update",
+      "type": "pick-request"
+    },
+    "data": "ewogInBpY2tSZXF1ZXN0SWRlbnRpZmllciI6ICIyIiwKICJoYW5kb3ZlckxvY2F0aW9uIiA6ICIxMjM0NSIsCiAiY3V0T2ZmVGltZSIgOiAiMjAyMS0xMC0wOFQyMjowMDowMFoiLAogInBpY2tCZWZvcmVUaW1lIiA6ICIyMDIxLTEwLTA4VDIxOjAwOjAwWiIKfQ=="
+  },
+  "context": {
+    "eventId": "136969346945"
+  }
+}
