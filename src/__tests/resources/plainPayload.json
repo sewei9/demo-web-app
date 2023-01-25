@@ -1,0 +1,66 @@
+{
+  "wmsPickRequestIdentifier": "b386d3bb-c6e1-45d8-92b3-b3db94d9c89c",
+  "pickIdentifier": "45622",
+  "orderReference": "80276660",
+  "orderType": {
+    "code": "customer",
+    "name": "Customer"
+  },
+  "carrierType": "mwpp",
+  "pickArea": "autoPick",
+  "priority": 0,
+  "cutOffTime": "2020-06-29T20:30:39.870Z",
+  "pickBeforeTime": "2020-05-28T21:12:21.123Z",
+  "service": {
+    "fromTime": "2020-06-29T20:10:39.870Z",
+    "toTime": "2020-06-29T21:10:39.870Z"
+  },
+  "linkedOrders": [
+    {
+      "wmsRequestIdentifier": "8f6bf828-8626-45f7-aa2f-e3174cc0635c",
+      "orderReference": "80276660",
+      "pickIdentifier": "45623"
+    }
+  ],
+  "lines": [
+    {
+      "pickRequestLineId": 200,
+      "automationPickRequestLineIdentifier": "1",
+      "wmsPickRequestLineIdentifier": "1",
+      "skuCode": "40082536",
+      "itemNumber": "40082536",
+      "itemType": "ART",
+      "supplierNumber": null,
+      "productionWeek": null,
+      "orderedQuantity": 10,
+      "pickedQuantity": null,
+      "deviations": []
+    },
+    {
+      "pickRequestLineId": 201,
+      "automationPickRequestLineIdentifier": "2",
+      "wmsPickRequestLineIdentifier": "2",
+      "skuCode": "00402813",
+      "itemNumber": "00402813",
+      "itemType": "ART",
+      "supplierNumber": null,
+      "productionWeek": null,
+      "orderedQuantity": 11,
+      "pickedQuantity": null,
+      "deviations": []
+    },
+    {
+      "pickRequestLineId": 202,
+      "automationPickRequestLineIdentifier": "3",
+      "wmsPickRequestLineIdentifier": "3",
+      "skuCode": "00235211",
+      "itemNumber": "00235211",
+      "itemType": "ART",
+      "supplierNumber": null,
+      "productionWeek": null,
+      "orderedQuantity": 20,
+      "pickedQuantity": null,
+      "deviations": []
+    }
+  ]
+}

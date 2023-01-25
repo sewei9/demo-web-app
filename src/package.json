@@ -1,0 +1,49 @@
+{
+  "name": "pick-request",
+  "version": "0.0.1",
+  "private": true,
+  "main": "index.js",
+  "config": {
+    "registry": "europe-npm.pkg.dev/ingka-ilo-aol-infrastructure/aol-libs/"
+  },
+  "scripts": {
+    "localstart": "cross-env DEBUG_ENABLED=true FIRESTORE_EMULATOR_HOST=localhost:8080 GCLOUD_PROJECT=ingka-ilo-aol-sandbox functions-framework --port=8090 --target=pullMessage --signature-type=event",
+    "localtrigger": "curl -d \"@./__tests/resources/payload.json\" -H \"Content-Type: application/json\" -X POST http://localhost:8090",
+    "lint": "npx eslint --cache --cache-location './.cache/eslint' .",
+    "lint:fix": "npx eslint --cache --cache-location './.cache/eslint' --fix .",
+    "format": "npx prettier --check .",
+    "format:fix": "npx prettier --write .",
+    "test": "npx env-cmd -e unit-test npx mocha __tests --recursive --timeout 60000 --reporter spec --exit",
+    "test:ci": "npx firebase-tools emulators:exec --only firestore,pubsub --project=test \"npx nyc --reporter=lcov --reporter=text-summary npm run test\"",
+    "emulators:start": "firebase emulators:start --project test",
+    "configure-npm:ci": "npm config set @ilo-aol:registry https://$npm_package_config_registry && npm config set //$npm_package_config_registry:always-auth true && npm config set //$npm_package_config_registry:_authToken && npm config get userconfig | xargs npx google-artifactregistry-auth",
+    "configure-npm:win": "npm config set @ilo-aol:registry https://%npm_package_config_registry% && npm config set //%npm_package_config_registry%:always-auth true && npm config set //%npm_package_config_registry%:_authToken && npm config get userconfig"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": "npx eslint --cache --cache-location './.cache/eslint' ./src"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "dependencies": {
+    "@ilo-aol/utils": "3.19.1",
+    "@opentelemetry/core": "1.6.0",
+    "@opentelemetry/api": "^1.1.0",
+    "@opentelemetry/api-metrics": "^0.32.0"
+  },
+  "devDependencies": {
+    "chai": "4.3.6",
+    "chai-as-promised": "7.1.1",
+    "cross-env": "7.0.3",
+    "eslint": "8.32.0",
+    "eslint-config-google": "0.14.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "lint-staged": "12.4.1",
+    "mocha": "9.2.1",
+    "nyc": "15.1.0",
+    "simple-git-hooks": "2.8.0",
+    "sinon": "13.0.1",
+    "sinon-chai": "3.7.0"
+  }
+}
