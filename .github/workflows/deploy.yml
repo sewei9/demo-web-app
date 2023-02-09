@@ -12,7 +12,7 @@ jobs:
         run: |
           echo "Build Web App"
           sleep 10s
-      - uses: convictional/trigger-workflow-and-wait@v1.3.0
+      - uses: convictional/trigger-workflow-and-wait@v1.6.5
         with:
           owner: sewei9
           repo: demo-web-api
