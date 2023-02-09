@@ -1,0 +1,15 @@
+{
+  "data": {
+    "attributes": {
+      "X-Cloud-Trace-Context": "some context",
+      "wmsIdentifier": "TEST-WMS-1",
+      "operation": "update",
+      "automationSystemIdentifier": "IWS-TEST",
+      "type": "pick-request"
+    },
+    "data": "ewogInBpY2tSZXF1ZXN0SWRlbnRpZmllciI6ICIyIiwKICJoYW5kb3ZlckxvY2F0aW9uIiA6ICIxMjM0NSIsCiAicGlja0JlZm9yZVRpbWUiIDogIjIwMjEtMTAtMDhUMjE6MDA6MDBaIgp9"
+  },
+  "context": {
+    "eventId": "136969346945"
+  }
+}

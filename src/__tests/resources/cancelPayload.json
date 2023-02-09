@@ -1,0 +1,15 @@
+{
+  "data": {
+    "attributes": {
+      "X-Cloud-Trace-Context": "jwjwjwjqii",
+      "wmsIdentifier": "TEST-WMS-1",
+      "operation": "cancel",
+      "automationSystemIdentifier": "GM-TEST",
+      "type": "pick-request"
+    },
+    "data": "ewogICJwaWNrUmVxdWVzdElkZW50aWZpZXIiOiAidGVzdC1waWNrLXJlcXVlc3QiCn0="
+  },
+  "context": {
+    "eventId": "136969346945"
+  }
+}
