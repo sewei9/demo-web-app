@@ -2,11 +2,6 @@ name: Autoclose dependabot alerts
 
 on:
   workflow_dispatch:
-    inputs:
-      environment:
-        description: 'Environment to execute tests on (dev, test, stage)'
-        required: true
-        default: 'test'
 
 jobs:
   close:
