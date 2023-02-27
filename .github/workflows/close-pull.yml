@@ -8,10 +8,7 @@ jobs:
     if: ${{ github.actor == 'dependabot' }}
     runs-on: ubuntu-latest
   steps:
-      - name: log
-        run: echo ${{ github.actor }}
-
-      - name: close pull
-        uses: peter-evans/close-pull@v1
-        with:
-          delete-branch: true
+    - name: close pull
+      uses: peter-evans/close-pull@v1
+      with:
+        delete-branch: true
