@@ -2,7 +2,7 @@ name: Autoclose dependabot alerts
 on:
   workflow_dispatch:
     inputs:
-    branches: [ develop ]
+    branches: [ master ]
 jobs:
   close:
     if: ${{ github.actor == 'dependabot' }}
