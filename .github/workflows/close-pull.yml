@@ -1,0 +1,17 @@
+name: Autoclose dependabot alerts
+on:
+  workflow_dispatch:
+    inputs:
+    branches: [ develop ]
+jobs:
+  close:
+    if: ${{ github.actor == 'dependabot' }}
+    runs-on: ubuntu-latest
+  steps:
+      - name: log
+        run: echo ${{ github.actor }}
+
+      - name: close pull
+        uses: peter-evans/close-pull@v1
+        with:
+          delete-branch: true
