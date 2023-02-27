@@ -1,13 +1,19 @@
 name: Autoclose dependabot alerts
+
 on:
   workflow_dispatch:
     inputs:
-    branches: [ master ]
+      environment:
+        description: 'Environment to execute tests on (dev, test, stage)'
+        required: true
+        default: 'test'
+
 jobs:
   close:
     if: ${{ github.actor == 'dependabot' }}
+    environment: ${{ github.event.inputs.environment }}
     runs-on: ubuntu-latest
-  steps:
+    steps:
     - name: close pull
       uses: peter-evans/close-pull@v1
       with:
