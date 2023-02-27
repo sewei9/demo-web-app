@@ -6,8 +6,7 @@ on:
 
 jobs:
   close:
-    if: ${{ github.actor == 'app/dependabot ' }}
-    environment: ${{ github.event.inputs.environment }}
+    if: ${{ github.actor == 'dependabot ' }}
     runs-on: ubuntu-latest
     steps:
     - name: close pull
