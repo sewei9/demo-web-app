@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: close pull
-      uses: peter-evans/close-pull@v1
+      uses: peter-evans/close-pull@v2
       with:
         comment: Auto-closing pull request
         delete-branch: true
